@@ -6,7 +6,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="padding :30px; align-self: center;">
 
                 <div class="mb-3">
-                    <form action="{{ route('store.post') }}" method="PUT" enctype="multipart/form-data">
+                    <form action="{{ route('update.post',$indexPost->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div>
                             <label for="exampleFormControlInput1" class="form-label">Title</label>
@@ -19,7 +19,7 @@
 
                         <div>          
                             <label for="exampleFormControlTextarea1" class="form-label">Brief Discription</label>
-                            <textarea class="form-control" name="brief_discription" id="exampleFormControlTextarea1" rows="2" value="{{ $indexPost ->brief_discription }}"></textarea>
+                            <textarea class="form-control" name="brief_discription" id="exampleFormControlTextarea1" rows="2" >{{ $indexPost ->brief_discription }}</textarea>
                                 
                             @error('brief_discription')
                                 <span class="text-danger">{{ $message }} </span>  
@@ -28,7 +28,7 @@
 
                         <div>          
                             <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                            <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="10" value="{{ $indexPost ->body }}"></textarea>
+                            <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="10" >{{ $indexPost ->body }}</textarea>
                                 
                             @error('body')
                                 <span class="text-danger">{{ $message }} </span>  

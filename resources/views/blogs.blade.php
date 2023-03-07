@@ -20,12 +20,16 @@
                          
                               <div class="card-body">
                                 <h5 style="font-weight: bold; font-size:20px;" class="card-title">{{ $index->title }}</h5>
-                                <p class="card-text">{{ $index->body }}</p>
+                                <p class="card-text">{{ $index->brief_discription }}</p>
                                 
                               </div>
                               <div class="card-footer">
                                   <small class="text-muted">{{ $index->updated_at->diffForHumans() }}</small>
-                                  <a style="justify-self: self-end" href="#" class="btn btn-info">More</a>
+                                  <div class="row" style="padding :5px;"> 
+                                    <a href="{{ route('detailPage',$index->id)}}">
+                                      <button type="button" class="btn btn-outline-primary" style="width: 100%;">View</button>
+                                    </a> 
+                                  </div>
                                 </div>
                             </div>
                           </div>

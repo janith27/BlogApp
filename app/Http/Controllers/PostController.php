@@ -22,12 +22,6 @@ class PostController extends Controller
         $post->body = $validatedData['body'];
         $post->user_id = auth()->user()->id;
 
-        // if ($request->hasFile('image')) {
-        //     $image = $request->file('image');
-        //     $filename = time() . '.' . $image->getClientOriginalExtension();
-        //     $image->storeAs('public/images', $filename);
-        //     $post->image = $filename;
-        // }
 
         if ($request->file('image')) {
             $file = $request->file('image');
@@ -39,7 +33,7 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect('/myblogs')->with('success', 'Post has been created!');
+        return redirect(route('myblogs',auth()->user()->id))->with('success', 'Post has been created!');
     }
 
 
@@ -51,5 +45,35 @@ class PostController extends Controller
         return view('postUpdate',compact('indexPost'));
     }
 
+    public function UpdateData(Request $request,$id){
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'brief_discription' => 'required|max:255',
+            'body' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg',
+        ]);
 
+        $post = Post::find($id);
+        $post->title = $validatedData['title'];
+        $post->brief_discription = $validatedData['brief_discription'];
+        $post->body = $validatedData['body'];
+        $post->user_id = auth()->user()->id;
+
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            @unlink(public_path('images/'.$post->image));
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('images'),$filename);
+            $post['image'] = $filename;
+        }
+
+        $post->save();
+        
+        return redirect(route('myblogs',auth()->user()->id))->with('success', 'Post has been Updated!');
+    }
+
+    public function DeletePost($id){
+        $result = Post::find($id)->delete();
+        return $result;
+    }
 }
