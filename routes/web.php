@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
@@ -52,4 +53,6 @@ Route::middleware([
         $post = Post::find($id);
         return view('viewPost',compact('post'));
     })->name('detailPage');
+
+    Route::post('/addcomment/{id}',[CommentController::class,'CreateComment'])->name('store.comment');
 });
