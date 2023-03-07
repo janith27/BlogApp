@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +33,9 @@ Route::middleware([
         return view('myblogs');
     })->name('myblogs');
 
+    Route::get('/addpost', function () {
+        return view('postCreate');
+    })->name('addpost');
 
+    Route::post('/addpost',[PostController::class,'CreatePost'])->name('store.post');
 });
