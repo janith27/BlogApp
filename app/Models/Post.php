@@ -11,6 +11,7 @@ class Post extends Model
 
     protected $fillable = [
         'title',
+        'brief_discription',
         'body',
         'image',
     ];
@@ -19,4 +20,5 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
 }

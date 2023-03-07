@@ -13,7 +13,11 @@
 
                           <div class="col">
                             <div class="card h-100">
-                              <img src="{{ $index->image }}" class="card-img-top" alt="image">
+                              {{-- <img src="{{ $index->image }}" class="card-img-top" alt="image"> --}}
+
+                              
+                              <img class="card-img-top" alt="image" id="image" src="{{ (!empty($index->image))?url('images/'.$index->image):url('images/no_image.jpg')   }}" style="max-width:300px; max-height: 300px" >
+                         
                               <div class="card-body">
                                 <h5 style="font-weight: bold; font-size:20px;" class="card-title">{{ $index->title }}</h5>
                                 <p class="card-text">{{ $index->body }}</p>
@@ -21,7 +25,7 @@
                               </div>
                               <div class="card-footer">
                                   <small class="text-muted">{{ $index->updated_at->diffForHumans() }}</small>
-                                  <a href="#" class="btn btn-primary">More</a>
+                                  <a style="justify-self: self-end" href="#" class="btn btn-info">More</a>
                                 </div>
                             </div>
                           </div>

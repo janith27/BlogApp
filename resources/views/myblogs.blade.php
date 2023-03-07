@@ -2,7 +2,7 @@
    
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="row" style=" padding-bottom:30px;" ><a href="{{ route('addpost')}}"> <button  style="width:100%;" type="button" class="btn btn-outline-primary">Create Post</button> </a> </div>
+            <div class="row" style=" padding-bottom:30px;" ><a href="{{ route('addpostpage')}}"> <button  style="width:100%;" type="button" class="btn btn-outline-primary">Create Post</button> </a> </div>
             
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="padding :30px; align-self: center;" >
 
@@ -24,7 +24,7 @@
                                     </div>
                                     <div class="col-md-2 align-self-center">
                                         <div class="row" style="padding :5px;"> <button type="button" class="btn btn-outline-primary">View</button> </div>
-                                        <div class="row" style="padding :5px;"> <button type="button" class="btn btn-outline-info">Edit</button> </div>
+                                        <div class="row" style="padding :5px;"> <a href="{{ route('updatePostPage',1)}}"><button type="button" class="btn btn-outline-info" style="width: 100%;">Edit</button></a> </div>
                                         <div class="row" style="padding :5px;"> <button type="button" class="btn btn-outline-danger">Delete</button> </div>
                                     </div>
                                 </div>

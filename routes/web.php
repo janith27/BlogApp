@@ -35,9 +35,12 @@ Route::middleware([
         return view('myblogs');
     })->name('myblogs');
 
-    Route::get('/addpost', function () {
+    Route::get('/addpostpage', function () {
         return view('postCreate');
-    })->name('addpost');
-
+    })->name('addpostpage');
+    
     Route::post('/addpost',[PostController::class,'CreatePost'])->name('store.post');
+
+    Route::get('/updatepostpage/{keyid}',[PostController::class,'UpdatePage'])->name('updatePostPage');
+
 });
