@@ -43,8 +43,11 @@ Route::middleware([
     Route::post('/addpost',[PostController::class,'CreatePost'])->name('store.post');
 
     Route::get('/updatepostpage/{keyid}',[PostController::class,'UpdatePage'])->name('updatePostPage');
+
     Route::post('/updatepost/{id}',[PostController::class,'UpdateData'])->name('update.post');
-    Route::delete('/deletepost/{id}',[PostController::class,'DeletePost'])->name('delete.post');
+
+    Route::get('/deletepost/{id}',[PostController::class,'DeletePost'])->name('delete.post');
+
     Route::get('/blogdetailpage/{id}', function ($id) {
         $post = Post::find($id);
         return view('viewPost',compact('post'));

@@ -73,7 +73,10 @@ class PostController extends Controller
     }
 
     public function DeletePost($id){
-        $result = Post::find($id)->delete();
-        return $result;
+        $image =Post::find($id);
+        $old_image=$image->image;
+        unlink(public_path('images/'.$old_image));
+        Post::find($id)->delete();
+        return redirect(route('myblogs',auth()->user()->id))->with('success', 'Post has been Deleted!');
     }
 }
