@@ -6,20 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 class PostController extends Controller
 {
-    // public function CreatePost(Request $request){
-    //     $validatedData = $request->validate([
-    //         'title' => 'required|unique:posts|max:255',
-    //         'description' => 'required',
-    //         'image' => 'mimes:png,jpg,jpeg',
-    //     ],
-    //     [
-    //         'title.required' => 'Please Input Title',
-    //         'title.max' => 'Title Less Than 255 Characters',
-    //         'description.required' => 'Please Input Description',
-    //         // 'image.mimes' => 'Please Input png, jpg or jpeg format',
-    //     ]);
-    // }
-
+    
     public function CreatePost(Request $request)
     {
         $validatedData = $request->validate([
