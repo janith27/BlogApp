@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+    // start comment create method
     public function CreateComment(Request $request,$postId){
         $validatedData = $request->validate([
             'comment' => 'required|max:255',
@@ -23,4 +24,5 @@ class CommentController extends Controller
 
         return redirect(route('detailPage',$postId))->with('success', 'Comment has been created!');
     }
+    // end method
 }

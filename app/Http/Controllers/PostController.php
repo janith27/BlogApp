@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 class PostController extends Controller
 {
-    
+    // start create poste method
     public function CreatePost(Request $request)
     {
         $validatedData = $request->validate([
@@ -35,16 +35,19 @@ class PostController extends Controller
 
         return redirect(route('myblogs',auth()->user()->id))->with('success', 'Post has been created!');
     }
+    // end Method
 
 
-    // update
+    // start update page view method
 
     public function UpdatePage($keyid){
         
         $indexPost = Post::find($keyid);
         return view('postUpdate',compact('indexPost'));
     }
+    // end method
 
+    // start update post method
     public function UpdateData(Request $request,$id){
         $validatedData = $request->validate([
             'title' => 'required|max:255',
@@ -71,7 +74,9 @@ class PostController extends Controller
         
         return redirect(route('myblogs',auth()->user()->id))->with('success', 'Post has been Updated!');
     }
+    // end method
 
+    // start delete post method
     public function DeletePost($id){
         $image =Post::find($id);
         $old_image=$image->image;
@@ -79,4 +84,5 @@ class PostController extends Controller
         Post::find($id)->delete();
         return redirect(route('myblogs',auth()->user()->id))->with('success', 'Post has been Deleted!');
     }
+    // end method
 }
