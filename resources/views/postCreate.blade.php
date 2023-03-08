@@ -45,7 +45,7 @@
                         </div>
 
                         <div style="text-align: center;">
-                            <button class="btn btn-primary" type="submit">Create Post </button>
+                            <button class="btn btn-outline-primary" type="submit">Create Post </button>
                         </div>
                     </form>
                 </div>  

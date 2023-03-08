@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>BlogApp</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -45,8 +45,11 @@
 
 
             <div class="container">
+                <div class="row text-center">
+                    <h1 style="color: white; font-size:50px"> Welcome Blog </h1>
+                </div>
                 <div class="row">
-                    <h1 style="color: white"> Welcome Blog app </h1>
+                    <img src="images/default/img_2.jpg" />
                 </div>
 
             </div>

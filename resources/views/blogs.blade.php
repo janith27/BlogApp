@@ -16,7 +16,7 @@
                               {{-- <img src="{{ $index->image }}" class="card-img-top" alt="image"> --}}
 
                               
-                              <img class="card-img-top" alt="image" id="image" src="{{ (!empty($index->image))?url('images/'.$index->image):url('images/no_image.jpg')   }}" style="max-width:300px; max-height: 300px" >
+                              <img class="card-img-top" alt="image" id="image" src="{{ (!empty($index->image))?url('images/'.$index->image):url('images/no_image.jpg')   }}" style="max-width:100%; max-height: 300px" >
                          
                               <div class="card-body">
                                 <h5 style="font-weight: bold; font-size:20px;" class="card-title">{{ $index->title }}</h5>
